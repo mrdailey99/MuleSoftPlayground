@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase guid="66a337bf-4a1b-432e-81c5-9dc9282b07c9" visibility="Internal">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="f2db7f3a-2bf6-4dc3-ac9a-62d3fe4d1138" name="ApexConnect" testItemId="2" title="Salesforce Connect: Playground2 (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Playground2</value>
+        </argument>
+        <argument id="connectionId">
+          <value class="value" valueClass="id">7c5fba45-42d8-444d-9f3b-65181b0589c1</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Playground2</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="uiApplicationName"/>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="7eee231d-3f3b-4b40-9640-c85bb614525a" name="ApexSoqlQuery" testItemId="14" title="SOQL Query: select Id from Lead where Title = ''=&gt;LeadRows">
+      <arguments>
+        <argument id="soqlQuery">
+          <value class="value" valueClass="string">select Id from Lead where Title = ''</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Playground2</value>
+        </argument>
+        <argument id="resultListName">
+          <value class="value" valueClass="string">LeadRows</value>
+        </argument>
+        <argument id="soqlColumnAliases">
+          <value class="valueList" mutable="Mutable"/>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.If" guid="1415c89f-d015-4267-a85b-1f6b62b27196" name="If" testItemId="15" title="If: {Count(LeadRows) &gt; 0}">
+      <arguments>
+        <argument id="condition">
+          <value class="gt">
+            <lhs class="funcCall" id="Count">
+              <argument id="value">
+                <value class="variable">
+                  <path element="LeadRows"/>
+                </value>
+              </argument>
+            </lhs>
+            <rhs class="value" valueClass="decimal">0</rhs>
+          </value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="then" testItemId="16">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" guid="6e414be2-3bb9-4999-9cf7-c76b2a83487d" name="ForEach" testItemId="17" title="For Each: {LeadRows}=&gt;Lead">
+              <arguments>
+                <argument id="list">
+                  <value class="variable">
+                    <path element="LeadRows"/>
+                  </value>
+                </argument>
+                <argument id="fromItem">
+                  <value class="value" valueClass="decimal">1</value>
+                </argument>
+                <argument id="valueName">
+                  <value class="value" valueClass="string">Lead</value>
+                </argument>
+                <argument id="continueOnFailure">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="18">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" guid="9d87e5b1-bc6a-4348-9a7a-d7c536c421a1" name="ApexDeleteObject" testItemId="21" title="Delete Object: {Lead.Id}">
+                      <arguments>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">Playground2</value>
+                        </argument>
+                        <argument id="objectId">
+                          <value class="variable">
+                            <path element="Lead"/>
+                            <path element="Id"/>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+</testCase>

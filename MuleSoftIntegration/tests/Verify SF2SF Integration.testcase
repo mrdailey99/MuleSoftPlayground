@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase guid="2f46c4f9-410d-43dd-8684-35da2136145a" id="13" registryId="2f46c4f9-410d-43dd-8684-35da2136145a">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="c2920bd6-0936-4e13-8267-32833765bebc" name="StepGroup" testItemId="3" title="Read Test Data">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Read Test Data</value>
+        </argument>
+      </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="CaseData" variableScope="Test">
+          <cacheToken>C:/Users/mrdai/git/MuleSoftPlayground/MuleSoftIntegration/templates/TestData.xlsx;1718382543010</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="Status"/>
+            <apiParam name="Priority"/>
+            <apiParam name="Origin"/>
+            <apiParam name="Description"/>
+            <apiParam name="Type"/>
+            <apiParam name="Reason"/>
+            <apiParam name="Subject"/>
+            <apiParam name="Email"/>
+            <apiParam name="Phone"/>
+            <apiParam name="Comments"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/TestData.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Case</worksheetName>
+            <valuesRange class="value" valueClass="string">A1:J2</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
+      <clauses>
+        <clause name="hidden" testItemId="4">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="a7088f1d-b730-4bad-8894-8dfceeccfadf" name="SetValues" testItemId="13" title="Set Values: CaseData.Subject">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">CaseData.Subject</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="compound">
+                          <parts>
+                            <variable>
+                              <path element="CaseData"/>
+                              <path element="Subject"/>
+                            </variable>
+                            <value valueClass="string"> </value>
+                            <funcCall id="UniqueId">
+                              <argument id="length">
+                                <value class="value" valueClass="decimal">5</value>
+                              </argument>
+                            </funcCall>
+                          </parts>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="3ca78b37-d424-4289-9bd7-97e0c847e145" name="ApexConnect" testItemId="20" title="Salesforce Connect: Playground1 (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Playground3</value>
+        </argument>
+        <argument id="connectionId">
+          <value class="value" valueClass="id">8aff7b87-b344-4ca2-9b6d-ee215a2a4ecd</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Playground1</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="uiApplicationName"/>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" guid="57d49ff1-57d7-44e2-84ff-b863cf7ab14a" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="2" title="Create Object: Case=&gt;CaseId">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">Case</value>
+        </argument>
+        <argument id="resultIdName">
+          <value class="value" valueClass="string">CaseId</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Playground1</value>
+        </argument>
+        <argument id="assignmentRuleId"/>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="Status">
+          <value class="variable">
+            <path element="CaseData"/>
+            <path element="Status"/>
+          </value>
+        </argument>
+        <argument id="Priority">
+          <value class="variable">
+            <path element="CaseData"/>
+            <path element="Priority"/>
+          </value>
+        </argument>
+        <argument id="Origin">
+          <value class="variable">
+            <path element="CaseData"/>
+            <path element="Origin"/>
+          </value>
+        </argument>
+        <argument id="Description">
+          <value class="variable">
+            <path element="CaseData"/>
+            <path element="Description"/>
+          </value>
+        </argument>
+        <argument id="Type">
+          <value class="variable">
+            <path element="CaseData"/>
+            <path element="Type"/>
+          </value>
+        </argument>
+        <argument id="Reason">
+          <value class="variable">
+            <path element="CaseData"/>
+            <path element="Reason"/>
+          </value>
+        </argument>
+        <argument id="Subject">
+          <value class="variable">
+            <path element="CaseData"/>
+            <path element="Subject"/>
+          </value>
+        </argument>
+        <argument id="SuppliedEmail">
+          <value class="variable">
+            <path element="CaseData"/>
+            <path element="Email"/>
+          </value>
+        </argument>
+        <argument id="SuppliedPhone">
+          <value class="variable">
+            <path element="CaseData"/>
+            <path element="Phone"/>
+          </value>
+        </argument>
+        <argument id="Comments">
+          <value class="variable">
+            <path element="CaseData"/>
+            <path element="Comments"/>
+          </value>
+        </argument>
+      </arguments>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">Playground1</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">Case</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Case&amp;field=Status" name="Status" title="Status"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Case&amp;field=Priority" name="Priority" title="Priority"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Case&amp;field=Origin" name="Origin" title="Origin"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Case&amp;field=Description" name="Description" title="Description"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Case&amp;field=Type" name="Type" title="Type"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Case&amp;field=Reason" name="Reason" title="Reason"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Case&amp;field=Subject" name="Subject" title="Subject"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Case&amp;field=SuppliedEmail" name="SuppliedEmail" title="SuppliedEmail"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Case&amp;field=SuppliedPhone" name="SuppliedPhone" title="SuppliedPhone"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Case&amp;field=Comments" name="Comments" title="Comments"/>
+      </generatedParameters>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="3ebd3d97-a293-45a5-b0e0-74e4bb055499" name="ApexConnect" testItemId="5" title="Salesforce Connect: Playground2 (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Playground2</value>
+        </argument>
+        <argument id="connectionId">
+          <value class="value" valueClass="id">7c5fba45-42d8-444d-9f3b-65181b0589c1</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Playground2</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="uiApplicationName"/>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.WaitFor" guid="6ede2a1c-b2ec-4efe-bd23-a4faaa7fb839" name="WaitFor" testItemId="18" title="Wait For: {Count(CaseRows) &gt; 0}=&gt;{2}">
+      <arguments>
+        <argument id="condition">
+          <value class="gt">
+            <lhs class="funcCall" id="Count">
+              <argument id="value">
+                <value class="variable">
+                  <path element="CaseRows"/>
+                </value>
+              </argument>
+            </lhs>
+            <rhs class="value" valueClass="decimal">0</rhs>
+          </value>
+        </argument>
+        <argument id="testAtStart"/>
+        <argument id="maxIterations">
+          <value class="value" valueClass="decimal">5</value>
+        </argument>
+        <argument id="sleepSecs">
+          <value class="value" valueClass="decimal">2</value>
+        </argument>
+        <argument id="continueOnFailure"/>
+      </arguments>
+      <clauses>
+        <clause name="substeps" testItemId="19">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="82c5c2e6-4c0e-492f-ace1-09f4ef443217" name="ApexSoqlQuery" testItemId="9" title="SOQL Query: select Id from Case where Subject = '{CaseData.Subject}'=&gt;CaseRows">
+              <arguments>
+                <argument id="soqlQuery">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">select Id from Case where Subject = '</value>
+                      <variable>
+                        <path element="CaseData"/>
+                        <path element="Subject"/>
+                      </variable>
+                      <value valueClass="string">'</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">Playground2</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">CaseRows</value>
+                </argument>
+                <argument id="soqlColumnAliases">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" guid="c7b307e7-1804-4ca1-9156-2cd36885ecd8" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="8" title="Read Object: Case = {CaseRows.Id}">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">Case</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">CaseRead</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Playground2</value>
+        </argument>
+        <argument id="objectId">
+          <value class="variable">
+            <path element="CaseRows"/>
+            <path element="Id"/>
+          </value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+      <resultAssertions>
+        <resultAssertion resultName="Status" title="Check Status">
+          <expected class="variable">
+            <path element="CaseData"/>
+            <path element="Status"/>
+          </expected>
+        </resultAssertion>
+        <resultAssertion resultName="Priority" title="Check Priority">
+          <expected class="variable">
+            <path element="CaseData"/>
+            <path element="Priority"/>
+          </expected>
+        </resultAssertion>
+        <resultAssertion resultName="Origin" title="Check Origin">
+          <expected class="variable">
+            <path element="CaseData"/>
+            <path element="Origin"/>
+          </expected>
+        </resultAssertion>
+        <resultAssertion resultName="Description" title="Check Description">
+          <expected class="variable">
+            <path element="CaseData"/>
+            <path element="Description"/>
+          </expected>
+        </resultAssertion>
+        <resultAssertion resultName="Type" title="Check Type">
+          <expected class="variable">
+            <path element="CaseData"/>
+            <path element="Type"/>
+          </expected>
+        </resultAssertion>
+        <resultAssertion resultName="Reason" title="Check Reason">
+          <expected class="variable">
+            <path element="CaseData"/>
+            <path element="Reason"/>
+          </expected>
+        </resultAssertion>
+        <resultAssertion resultName="Subject" title="Check Subject">
+          <expected class="variable">
+            <path element="CaseData"/>
+            <path element="Subject"/>
+          </expected>
+        </resultAssertion>
+        <resultAssertion resultName="Comments" title="Check Comments">
+          <expected class="variable">
+            <path element="CaseData"/>
+            <path element="Comments"/>
+          </expected>
+        </resultAssertion>
+      </resultAssertions>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">Playground2</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.CustomObjectName">Case</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Case&amp;field=Status" name="Status" title="Status"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Case&amp;field=Priority" name="Priority" title="Priority"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Case&amp;field=Origin" name="Origin" title="Case Origin"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Case&amp;field=Description" name="Description" title="Description"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Case&amp;field=Type" name="Type" title="Type"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Case&amp;field=Reason" name="Reason" title="Case Reason"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Case&amp;field=Subject" name="Subject" title="Subject"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Case&amp;field=Comments" name="Comments" title="Internal Comments"/>
+      </generatedParameters>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" guid="86a72165-5d0a-49c1-8f75-76e25effbddc" name="ApexDeleteObject" testItemId="12" title="Delete Object: {CaseId}">
+      <tags/>
+      <arguments>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Playground1</value>
+        </argument>
+        <argument id="objectId">
+          <value class="variable">
+            <path element="CaseId"/>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" guid="11b93f20-95d2-499f-92f9-28d73da39adb" name="ApexDeleteObject" testItemId="14" title="Delete Object: {CaseRows.Id}">
+      <arguments>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Playground2</value>
+        </argument>
+        <argument id="objectId">
+          <value class="variable">
+            <path element="CaseRows"/>
+            <path element="Id"/>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+  </steps>
+</testCase>

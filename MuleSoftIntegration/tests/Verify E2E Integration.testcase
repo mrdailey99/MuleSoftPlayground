@@ -1,0 +1,1738 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase guid="0473de29-856e-4da8-a6ae-c29986907150" id="7" registryId="0473de29-856e-4da8-a6ae-c29986907150">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="9ff2c8a5-61ba-4384-94cc-25437bda5551" name="ApexConnect" testItemId="1" title="Salesforce Connect: Playground2 (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Playground2</value>
+        </argument>
+        <argument id="connectionId">
+          <value class="value" valueClass="id">7c5fba45-42d8-444d-9f3b-65181b0589c1</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Playground2</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">LightningSales</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.WebConnect" guid="98068eda-3b8a-4e0c-94d6-5579216ccd0b" name="WebConnect" testItemId="2" title="Web Connect: MuleSoftAPI">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">MuleSoftAPI</value>
+        </argument>
+        <argument id="connectionId">
+          <value class="value" valueClass="id">81bd5472-61e0-44ac-9ca1-03ccca5793c7</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">MuleSoftAPI</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.WebConnect" guid="efb4ec1f-5c33-4e8c-aeb2-3db14e8883ba" name="WebConnect" testItemId="3" title="Web Connect: AmazonDynamoDB">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">AmazonDynamoDB</value>
+        </argument>
+        <argument id="connectionId">
+          <value class="value" valueClass="id">70613a4e-6585-4ea3-9ea9-0c27ca603e8e</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">AmazonDynamoDB</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="378790b7-5f46-4909-8a18-9d9322f3529a" name="StepGroup" testItemId="7" title="Create Lead and Verify SF Sync">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Create Lead and Verify SF Sync</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="8">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="d31128d1-3f21-4da7-920d-a16f410f97af" name="SetValues" testItemId="13" title="Set Values: LeadID">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">FirstName</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="compound">
+                          <parts>
+                            <value valueClass="string">Marty </value>
+                            <funcCall id="UniqueId">
+                              <argument id="length">
+                                <value class="value" valueClass="decimal">5</value>
+                              </argument>
+                            </funcCall>
+                          </parts>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">LastName</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="compound">
+                          <parts>
+                            <value valueClass="string">McTesterson </value>
+                            <funcCall id="UniqueId">
+                              <argument id="length">
+                                <value class="value" valueClass="decimal">5</value>
+                              </argument>
+                            </funcCall>
+                          </parts>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">Company</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="compound">
+                          <parts>
+                            <value valueClass="string">Testing </value>
+                            <funcCall id="UniqueId">
+                              <argument id="length">
+                                <value class="value" valueClass="decimal">5</value>
+                              </argument>
+                            </funcCall>
+                            <value valueClass="string"> Inc.</value>
+                          </parts>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">LeadID</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">5</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" guid="5c607a5a-7c5d-45c8-89d4-7c8f9342b3c7" isTitleUpdated="true" name="RestRequest" testItemId="10" title="Web Request (REST): ⇒MuleResponse (Create Lead)">
+              <arguments>
+                <argument id="connectionName">
+                  <value class="value" valueClass="string">MuleSoftAPI</value>
+                </argument>
+                <argument id="targetValue">
+                  <value class="restTarget" uri="rest:untyped?method=PUT&amp;bodyStyle=JSON"/>
+                </argument>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">MuleResponse</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="statusResultName">
+                  <value class="value" valueClass="string">MuleResponseStatus</value>
+                </argument>
+                <argument id="restResourceUrl">
+                  <value class="value" valueClass="string">/createlead</value>
+                </argument>
+                <argument id="restRequestHeader"/>
+                <argument id="restBody">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">{\n    "LeadID": "</value>
+                      <variable>
+                        <path element="LeadID"/>
+                      </variable>
+                      <value valueClass="string">",\n    "FirstName": "</value>
+                      <variable>
+                        <path element="FirstName"/>
+                      </variable>
+                      <value valueClass="string">",\n    "LastName": "</value>
+                      <variable>
+                        <path element="LastName"/>
+                      </variable>
+                      <value valueClass="string">",\n    "Company": "</value>
+                      <variable>
+                        <path element="Company"/>
+                      </variable>
+                      <value valueClass="string">"\n}</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="restAttachments">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+              </arguments>
+              <generatedParameters>
+                <apiParam group="request" internal="true" name="restResourceUrl" title="Resource URL">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+                <apiParam group="header" internal="true" name="restRequestHeader" passwordVariableAllowed="true" title="Request Header">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+                <apiParam group="body" name="restBody" title="Body">
+                  <type>
+                    <textType>
+                      <constraints>
+                        <valueConstraint name="mimeType">application/json</valueConstraint>
+                      </constraints>
+                    </textType>
+                  </type>
+                </apiParam>
+                <compoundApiParam group="attachments" list="true" name="restAttachments" title="Attachment">
+                  <childParams>
+                    <apiParam name="name" title="Attachment Name"/>
+                    <apiParam name="fileName" title="File Name"/>
+                    <apiParam name="contentType" title="Content Type">
+                      <type>
+                        <choiceType>
+                          <constraints>
+                            <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                            <valueConstraint name="valuesSourceDependencies">com.provar.core.model.base.api.MimeContentType</valueConstraint>
+                          </constraints>
+                        </choiceType>
+                      </type>
+                    </apiParam>
+                    <apiParam name="data" title="Data">
+                      <type>
+                        <urlType/>
+                      </type>
+                    </apiParam>
+                    <apiParam name="base64Encode" title="Encode As Base64">
+                      <type>
+                        <booleanType/>
+                      </type>
+                    </apiParam>
+                  </childParams>
+                </compoundApiParam>
+              </generatedParameters>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="24b709be-3b33-48a3-8ec1-150f6e51e01d" name="AssertValues" testItemId="34" title="Assert: {MuleResponseStatus.StatusCode} EqualTo 201">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="variable">
+                    <path element="MuleResponseStatus"/>
+                    <path element="StatusCode"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="value" valueClass="string">201</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="b485cc47-3314-4094-b054-f1e17fa561bf" name="AssertValues" testItemId="57" title="Assert: {MuleResponseStatus.ResponseMessage} EqualTo Lead Successfully Created/Updated!">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="variable">
+                    <path element="MuleResponseStatus"/>
+                    <path element="ResponseMessage"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="value" valueClass="string">Lead Successfully Created/Updated!</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" guid="cf70ccb2-4432-4b9d-adb3-37754a3d2d0e" isTitleUpdated="true" name="RestRequest" testItemId="11" title="Web Request (REST): ⇒RestResponse (Sync to SF)">
+              <arguments>
+                <argument id="connectionName">
+                  <value class="value" valueClass="string">AmazonDynamoDB</value>
+                </argument>
+                <argument id="targetValue">
+                  <value class="restTarget" uri="rest:untyped?method=GET&amp;bodyStyle=JSON"/>
+                </argument>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">RestResponse</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="statusResultName">
+                  <value class="value" valueClass="string">RestResponseStatus</value>
+                </argument>
+                <argument id="restResourceUrl">
+                  <value class="value" valueClass="string">/</value>
+                </argument>
+                <argument id="restRequestHeader"/>
+              </arguments>
+              <generatedParameters>
+                <apiParam group="request" internal="true" name="restResourceUrl" title="Resource URL">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+                <apiParam group="header" internal="true" name="restRequestHeader" passwordVariableAllowed="true" title="Request Header">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+              </generatedParameters>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="158a3f14-342b-47d2-aaf4-dce087e31ec8" name="AssertValues" testItemId="53" title="Assert: {RestResponseStatus.StatusCode} EqualTo 200">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="variable">
+                    <path element="RestResponseStatus"/>
+                    <path element="StatusCode"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="value" valueClass="string">200</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="a6041255-25e9-4d06-b69a-436df707879f" name="ApexSoqlQuery" testItemId="12" title="SOQL Query: select Id,FirstName, LastName, Company from Lead where Name = 'Marty AW5HD McTesterson AW5HF' and Company = 'Testing AW5HH Inc.'=&gt;LeadRows">
+              <arguments>
+                <argument id="soqlQuery">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">select Id,FirstName, LastName, Company from Lead where Name = '</value>
+                      <variable>
+                        <path element="FirstName"/>
+                      </variable>
+                      <value valueClass="string"> </value>
+                      <variable>
+                        <path element="LastName"/>
+                      </variable>
+                      <value valueClass="string">' and Company = '</value>
+                      <variable>
+                        <path element="Company"/>
+                      </variable>
+                      <value valueClass="string">'</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">Playground2</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">LeadRows</value>
+                </argument>
+                <argument id="soqlColumnAliases">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="a6614ef6-8183-4c08-abc0-69c7bd573c16" name="AssertValues" testItemId="14" title="Assert: 1 EqualTo 1">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="funcCall" id="Count">
+                    <argument id="value">
+                      <value class="variable">
+                        <path element="LeadRows"/>
+                        <path element="Id"/>
+                      </value>
+                    </argument>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="value" valueClass="string">1</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="a42da467-5cc7-4715-96f4-f5b015d265b5" name="StepGroup" testItemId="15" title="Query Lead and Compare to SF">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Query Lead and Compare to SF</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="16">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" guid="afc8ea06-36da-44f4-bab1-86bc2209dcd7" isTitleUpdated="true" name="RestRequest" testItemId="21" title="Web Request (REST): ⇒MuleResponse (Get Lead)">
+              <arguments>
+                <argument id="connectionName">
+                  <value class="value" valueClass="string">MuleSoftAPI</value>
+                </argument>
+                <argument id="targetValue">
+                  <value class="restTarget" uri="rest:untyped?method=GET&amp;bodyStyle=JSON"/>
+                </argument>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">MuleResponse</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="statusResultName">
+                  <value class="value" valueClass="string">MuleResponseStatus</value>
+                </argument>
+                <argument id="restResourceUrl">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">/leads/</value>
+                      <variable>
+                        <path element="LeadID"/>
+                      </variable>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="restRequestHeader"/>
+              </arguments>
+              <generatedParameters>
+                <apiParam group="request" internal="true" name="restResourceUrl" title="Resource URL">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+                <apiParam group="header" internal="true" name="restRequestHeader" passwordVariableAllowed="true" title="Request Header">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+              </generatedParameters>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="1739d613-490b-4c5e-b4ec-56aee2f3099c" name="AssertValues" testItemId="54" title="Assert: {MuleResponseStatus.StatusCode} EqualTo 200">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="variable">
+                    <path element="MuleResponseStatus"/>
+                    <path element="StatusCode"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="value" valueClass="string">200</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="996942f7-8cc9-4dca-bd86-20837248446b" name="AssertValues" testItemId="23" title="Assert: {LeadRows.FirstName} EqualTo {MuleResponse.FirstName}">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="variable">
+                    <path element="LeadRows"/>
+                    <path element="FirstName"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="variable">
+                    <path element="MuleResponse"/>
+                    <path element="FirstName"/>
+                  </value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="fc9bbd31-f0c2-4cfd-9cba-342df221614d" name="AssertValues" testItemId="24" title="Assert: {LeadRows.LastName} EqualTo {MuleResponse.LastName}">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="variable">
+                    <path element="LeadRows"/>
+                    <path element="LastName"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="variable">
+                    <path element="MuleResponse"/>
+                    <path element="LastName"/>
+                  </value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="a3a5551e-a0d9-4b38-90e3-b6597f321064" name="AssertValues" testItemId="22" title="Assert: {LeadRows.Company} EqualTo {MuleResponse.Company}">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="variable">
+                    <path element="LeadRows"/>
+                    <path element="Company"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="variable">
+                    <path element="MuleResponse"/>
+                    <path element="Company"/>
+                  </value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="c10771c9-f561-4f5f-90e6-f6e722a3f614" name="StepGroup" testItemId="19" title="Update Lead and Resync to SF">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Update Lead and Resync to SF</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="20">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="f0649cc7-350f-41a8-8d8c-454c8a8c47c4" name="SetValues" testItemId="26" title="Set Values: NewLeadID">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">NewFirstName</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="compound">
+                          <parts>
+                            <value valueClass="string">Rachel </value>
+                            <funcCall id="UniqueId">
+                              <argument id="length">
+                                <value class="value" valueClass="decimal">5</value>
+                              </argument>
+                            </funcCall>
+                          </parts>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">NewLastName</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="compound">
+                          <parts>
+                            <value valueClass="string">Rachel </value>
+                            <funcCall id="UniqueId">
+                              <argument id="length">
+                                <value class="value" valueClass="decimal">5</value>
+                              </argument>
+                            </funcCall>
+                          </parts>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">NewCompany</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="compound">
+                          <parts>
+                            <value valueClass="string">Testing </value>
+                            <funcCall id="UniqueId">
+                              <argument id="length">
+                                <value class="value" valueClass="decimal">5</value>
+                              </argument>
+                            </funcCall>
+                            <value valueClass="string"> Inc.</value>
+                          </parts>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">NewLeadID</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">6</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" guid="44161571-ab5a-431e-8b1a-00dca4ce30b1" isTitleUpdated="true" name="RestRequest" testItemId="25" title="Web Request (REST): ⇒MuleResponse (Update Lead)">
+              <arguments>
+                <argument id="connectionName">
+                  <value class="value" valueClass="string">MuleSoftAPI</value>
+                </argument>
+                <argument id="targetValue">
+                  <value class="restTarget" uri="rest:untyped?method=PUT&amp;bodyStyle=JSON"/>
+                </argument>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">MuleResponse</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="statusResultName">
+                  <value class="value" valueClass="string">MuleResponseStatus</value>
+                </argument>
+                <argument id="restResourceUrl">
+                  <value class="value" valueClass="string">/createlead</value>
+                </argument>
+                <argument id="restRequestHeader"/>
+                <argument id="restBody">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">{\n    "LeadID": "</value>
+                      <variable>
+                        <path element="LeadID"/>
+                      </variable>
+                      <value valueClass="string">",\n    "FirstName": "</value>
+                      <variable>
+                        <path element="NewFirstName"/>
+                      </variable>
+                      <value valueClass="string">",\n    "LastName": "</value>
+                      <variable>
+                        <path element="NewLastName"/>
+                      </variable>
+                      <value valueClass="string">",\n    "Company": "</value>
+                      <variable>
+                        <path element="NewCompany"/>
+                      </variable>
+                      <value valueClass="string">"\n    }</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="restAttachments">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+              </arguments>
+              <generatedParameters>
+                <apiParam group="request" internal="true" name="restResourceUrl" title="Resource URL">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+                <apiParam group="header" internal="true" name="restRequestHeader" passwordVariableAllowed="true" title="Request Header">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+                <apiParam group="body" name="restBody" title="Body">
+                  <type>
+                    <textType>
+                      <constraints>
+                        <valueConstraint name="mimeType">application/json</valueConstraint>
+                      </constraints>
+                    </textType>
+                  </type>
+                </apiParam>
+                <compoundApiParam group="attachments" list="true" name="restAttachments" title="Attachment">
+                  <childParams>
+                    <apiParam name="name" title="Attachment Name"/>
+                    <apiParam name="fileName" title="File Name"/>
+                    <apiParam name="contentType" title="Content Type">
+                      <type>
+                        <choiceType>
+                          <constraints>
+                            <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                            <valueConstraint name="valuesSourceDependencies">com.provar.core.model.base.api.MimeContentType</valueConstraint>
+                          </constraints>
+                        </choiceType>
+                      </type>
+                    </apiParam>
+                    <apiParam name="data" title="Data">
+                      <type>
+                        <urlType/>
+                      </type>
+                    </apiParam>
+                    <apiParam name="base64Encode" title="Encode As Base64">
+                      <type>
+                        <booleanType/>
+                      </type>
+                    </apiParam>
+                  </childParams>
+                </compoundApiParam>
+              </generatedParameters>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="67393f4c-9500-4876-a743-19a569e4a0cb" name="AssertValues" testItemId="35" title="Assert: {MuleResponseStatus.StatusCode} EqualTo 201">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="variable">
+                    <path element="MuleResponseStatus"/>
+                    <path element="StatusCode"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="value" valueClass="string">201</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="d424bb6b-8d25-4a8e-828e-bc3942946da9" name="AssertValues" testItemId="55" title="Assert: {MuleResponseStatus.ResponseMessage} EqualTo Lead Successfully Created/Updated!">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="variable">
+                    <path element="MuleResponseStatus"/>
+                    <path element="ResponseMessage"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="value" valueClass="string">Lead Successfully Created/Updated!</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" guid="548b7988-993f-4869-9865-b78dba9eb928" isTitleUpdated="true" name="RestRequest" testItemId="38" title="Web Request (REST): ⇒MuleResponse (Get Lead)">
+              <arguments>
+                <argument id="connectionName">
+                  <value class="value" valueClass="string">MuleSoftAPI</value>
+                </argument>
+                <argument id="targetValue">
+                  <value class="restTarget" uri="rest:untyped?method=GET&amp;bodyStyle=JSON"/>
+                </argument>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">MuleResponse</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="statusResultName">
+                  <value class="value" valueClass="string">MuleResponseStatus</value>
+                </argument>
+                <argument id="restResourceUrl">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">/leads/</value>
+                      <variable>
+                        <path element="LeadID"/>
+                      </variable>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="restRequestHeader"/>
+              </arguments>
+              <generatedParameters>
+                <apiParam group="request" internal="true" name="restResourceUrl" title="Resource URL">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+                <apiParam group="header" internal="true" name="restRequestHeader" passwordVariableAllowed="true" title="Request Header">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+              </generatedParameters>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="5dd05076-405f-49b8-8174-8267d722715a" name="AssertValues" testItemId="40" title="Assert: {MuleResponseStatus.StatusCode} EqualTo 200">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="variable">
+                    <path element="MuleResponseStatus"/>
+                    <path element="StatusCode"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="value" valueClass="string">200</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" guid="0fe94b1f-c411-4a76-b2a2-78093e112230" isTitleUpdated="true" name="RestRequest" testItemId="31" title="Web Request (REST): ⇒RestResponse (Sync to SF)">
+              <arguments>
+                <argument id="connectionName">
+                  <value class="value" valueClass="string">AmazonDynamoDB</value>
+                </argument>
+                <argument id="targetValue">
+                  <value class="restTarget" uri="rest:untyped?method=GET&amp;bodyStyle=JSON"/>
+                </argument>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">RestResponse</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="statusResultName">
+                  <value class="value" valueClass="string">RestResponseStatus</value>
+                </argument>
+                <argument id="restResourceUrl">
+                  <value class="value" valueClass="string">/</value>
+                </argument>
+                <argument id="restRequestHeader"/>
+              </arguments>
+              <generatedParameters>
+                <apiParam group="request" internal="true" name="restResourceUrl" title="Resource URL">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+                <apiParam group="header" internal="true" name="restRequestHeader" passwordVariableAllowed="true" title="Request Header">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+              </generatedParameters>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="4778f7c1-7b5c-491f-b972-0cb76c682631" name="AssertValues" testItemId="36" title="Assert: {RestResponseStatus.StatusCode} EqualTo 200">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="variable">
+                    <path element="RestResponseStatus"/>
+                    <path element="StatusCode"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="value" valueClass="string">200</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="fc80a85e-6a30-4e0d-bff5-6528a2b2c080" name="ApexSoqlQuery" testItemId="33" title="SOQL Query: select Id,FirstName, LastName, Company from Lead where Name = 'Rachel AY1VN Rachel AY1VP' and Company = 'Testing AY1VR Inc.'=&gt;LeadRowsUpdated">
+              <arguments>
+                <argument id="soqlQuery">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">select Id,FirstName, LastName, Company from Lead where Name = '</value>
+                      <variable>
+                        <path element="NewFirstName"/>
+                      </variable>
+                      <value valueClass="string"> </value>
+                      <variable>
+                        <path element="NewLastName"/>
+                      </variable>
+                      <value valueClass="string">' and Company = '</value>
+                      <variable>
+                        <path element="NewCompany"/>
+                      </variable>
+                      <value valueClass="string">'</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">Playground2</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">LeadRowsUpdated</value>
+                </argument>
+                <argument id="soqlColumnAliases">
+                  <value class="valueList" displayValue="]" mutable="Mutable"/>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="8faeb648-73f0-4d73-8e2d-756dac6d55d4" name="AssertValues" testItemId="27" title="Assert: {LeadRowsUpdated.FirstName} EqualTo {MuleResponse.FirstName}">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="variable">
+                    <path element="LeadRowsUpdated"/>
+                    <path element="FirstName"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="variable">
+                    <path element="MuleResponse"/>
+                    <path element="FirstName"/>
+                  </value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="67194bc0-469b-47a1-9be8-827fb060456b" name="AssertValues" testItemId="28" title="Assert: {LeadRowsUpdated.LastName} EqualTo {MuleResponse.LastName}">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="variable">
+                    <path element="LeadRowsUpdated"/>
+                    <path element="LastName"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="variable">
+                    <path element="MuleResponse"/>
+                    <path element="LastName"/>
+                  </value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="4fc7601b-798f-4985-b5bf-bb661d8d12f5" name="AssertValues" testItemId="29" title="Assert: {LeadRowsUpdated.Company} EqualTo {MuleResponse.Company}">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="variable">
+                    <path element="LeadRowsUpdated"/>
+                    <path element="Company"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="variable">
+                    <path element="MuleResponse"/>
+                    <path element="Company"/>
+                  </value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="17346ed2-398b-4b4f-b356-ac2bbd1fcf99" name="StepGroup" testItemId="17" title="Delete Lead from DB and SF">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Delete Lead from DB and SF</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="18">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" guid="f6516d6d-b162-4fe1-8c6b-60e3457f81c0" isTitleUpdated="true" name="RestRequest" testItemId="42" title="Web Request (REST): ⇒MuleResponse (Delete Lead)">
+              <arguments>
+                <argument id="connectionName">
+                  <value class="value" valueClass="string">MuleSoftAPI</value>
+                </argument>
+                <argument id="targetValue">
+                  <value class="restTarget" uri="rest:untyped?method=DELETE&amp;bodyStyle=JSON"/>
+                </argument>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">MuleResponse</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="statusResultName">
+                  <value class="value" valueClass="string">MuleResponseStatus</value>
+                </argument>
+                <argument id="restResourceUrl">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">/deletelead/</value>
+                      <variable>
+                        <path element="LeadID"/>
+                      </variable>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="restRequestHeader"/>
+                <argument id="restBody"/>
+                <argument id="restAttachments">
+                  <value class="valueList" displayValue="]" mutable="Mutable"/>
+                </argument>
+              </arguments>
+              <generatedParameters>
+                <apiParam group="request" internal="true" name="restResourceUrl" title="Resource URL">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+                <apiParam group="header" internal="true" name="restRequestHeader" passwordVariableAllowed="true" title="Request Header">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+                <apiParam group="body" name="restBody" title="Body">
+                  <type>
+                    <textType>
+                      <constraints>
+                        <valueConstraint name="mimeType">application/json</valueConstraint>
+                      </constraints>
+                    </textType>
+                  </type>
+                </apiParam>
+                <compoundApiParam group="attachments" list="true" name="restAttachments" title="Attachment">
+                  <childParams>
+                    <apiParam name="name" title="Attachment Name"/>
+                    <apiParam name="fileName" title="File Name"/>
+                    <apiParam name="contentType" title="Content Type">
+                      <type>
+                        <choiceType>
+                          <constraints>
+                            <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                            <valueConstraint name="valuesSourceDependencies">com.provar.core.model.base.api.MimeContentType</valueConstraint>
+                          </constraints>
+                        </choiceType>
+                      </type>
+                    </apiParam>
+                    <apiParam name="data" title="Data">
+                      <type>
+                        <urlType/>
+                      </type>
+                    </apiParam>
+                    <apiParam name="base64Encode" title="Encode As Base64">
+                      <type>
+                        <booleanType/>
+                      </type>
+                    </apiParam>
+                  </childParams>
+                </compoundApiParam>
+              </generatedParameters>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="7f413242-e968-437b-af8e-fb614a24324c" name="AssertValues" testItemId="43" title="Assert: {MuleResponseStatus.StatusCode} EqualTo 200">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="variable">
+                    <path element="MuleResponseStatus"/>
+                    <path element="StatusCode"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="value" valueClass="string">200</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" guid="81e0c856-fe34-4d20-9cbe-7a4c24f863cd" isTitleUpdated="true" name="RestRequest" testItemId="45" title="Web Request (REST): ⇒MuleResponse (Get Lead)">
+              <arguments>
+                <argument id="connectionName">
+                  <value class="value" valueClass="string">MuleSoftAPI</value>
+                </argument>
+                <argument id="targetValue">
+                  <value class="restTarget" uri="rest:untyped?method=GET&amp;bodyStyle=JSON"/>
+                </argument>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">MuleResponse</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="statusResultName">
+                  <value class="value" valueClass="string">MuleResponseStatus</value>
+                </argument>
+                <argument id="restResourceUrl">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">/leads/</value>
+                      <variable>
+                        <path element="LeadID"/>
+                      </variable>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="restRequestHeader"/>
+              </arguments>
+              <generatedParameters>
+                <apiParam group="request" internal="true" name="restResourceUrl" title="Resource URL">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+                <apiParam group="header" internal="true" name="restRequestHeader" passwordVariableAllowed="true" title="Request Header">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+              </generatedParameters>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="50d1edda-9e06-4f58-85f7-2e34db7102b7" name="AssertValues" testItemId="47" title="Assert: {MuleResponseStatus.StatusCode} EqualTo 200">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="variable">
+                    <path element="MuleResponseStatus"/>
+                    <path element="StatusCode"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="value" valueClass="string">200</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="f4751340-841b-47c5-8d02-75200163ff62" name="AssertValues" testItemId="48" title="Assert: No leads matching ID '5' were found. EqualTo No leads matching ID '5' were found.">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="variable">
+                    <path element="MuleResponse"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">No leads matching ID '</value>
+                      <variable>
+                        <path element="LeadID"/>
+                      </variable>
+                      <value valueClass="string">' were found.</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" guid="dd80ae6a-eb05-44c8-b66d-5116b2b87725" isTitleUpdated="true" name="RestRequest" testItemId="76" title="Web Request (REST): ⇒MuleResponse (Delete Lead)">
+              <tags>
+                <string>disabled</string>
+              </tags>
+              <arguments>
+                <argument id="connectionName">
+                  <value class="value" valueClass="string">MuleSoftAPI</value>
+                </argument>
+                <argument id="targetValue">
+                  <value class="restTarget" uri="rest:untyped?method=DELETE&amp;bodyStyle=JSON"/>
+                </argument>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">MuleResponse</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="statusResultName">
+                  <value class="value" valueClass="string">MuleResponseStatus</value>
+                </argument>
+                <argument id="restResourceUrl">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">/deletelead/</value>
+                      <variable>
+                        <path element="NewLeadID"/>
+                      </variable>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="restRequestHeader"/>
+                <argument id="restBody"/>
+                <argument id="restAttachments">
+                  <value class="valueList" displayValue="]" mutable="Mutable"/>
+                </argument>
+              </arguments>
+              <generatedParameters>
+                <apiParam group="request" internal="true" name="restResourceUrl" title="Resource URL">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+                <apiParam group="header" internal="true" name="restRequestHeader" passwordVariableAllowed="true" title="Request Header">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+                <apiParam group="body" name="restBody" title="Body">
+                  <type>
+                    <textType>
+                      <constraints>
+                        <valueConstraint name="mimeType">application/json</valueConstraint>
+                      </constraints>
+                    </textType>
+                  </type>
+                </apiParam>
+                <compoundApiParam group="attachments" list="true" name="restAttachments" title="Attachment">
+                  <childParams>
+                    <apiParam name="name" title="Attachment Name"/>
+                    <apiParam name="fileName" title="File Name"/>
+                    <apiParam name="contentType" title="Content Type">
+                      <type>
+                        <choiceType>
+                          <constraints>
+                            <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                            <valueConstraint name="valuesSourceDependencies">com.provar.core.model.base.api.MimeContentType</valueConstraint>
+                          </constraints>
+                        </choiceType>
+                      </type>
+                    </apiParam>
+                    <apiParam name="data" title="Data">
+                      <type>
+                        <urlType/>
+                      </type>
+                    </apiParam>
+                    <apiParam name="base64Encode" title="Encode As Base64">
+                      <type>
+                        <booleanType/>
+                      </type>
+                    </apiParam>
+                  </childParams>
+                </compoundApiParam>
+              </generatedParameters>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="f8004b9f-7606-42c2-bacb-d08b2322119f" name="AssertValues" testItemId="77" title="Assert: {MuleResponseStatus.StatusCode} EqualTo 200">
+              <tags>
+                <string>disabled</string>
+              </tags>
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="variable">
+                    <path element="MuleResponseStatus"/>
+                    <path element="StatusCode"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="value" valueClass="string">200</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" guid="2d80e1fd-24af-4dd5-bd9f-df5805ed2b1c" isTitleUpdated="true" name="RestRequest" testItemId="50" title="Web Request (REST): ⇒MuleResponse (Get Lead)">
+              <arguments>
+                <argument id="connectionName">
+                  <value class="value" valueClass="string">MuleSoftAPI</value>
+                </argument>
+                <argument id="targetValue">
+                  <value class="restTarget" uri="rest:untyped?method=GET&amp;bodyStyle=JSON"/>
+                </argument>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">MuleResponse</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="statusResultName">
+                  <value class="value" valueClass="string">MuleResponseStatus</value>
+                </argument>
+                <argument id="restResourceUrl">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">/leads/</value>
+                      <variable>
+                        <path element="NewLeadID"/>
+                      </variable>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="restRequestHeader"/>
+              </arguments>
+              <generatedParameters>
+                <apiParam group="request" internal="true" name="restResourceUrl" title="Resource URL">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+                <apiParam group="header" internal="true" name="restRequestHeader" passwordVariableAllowed="true" title="Request Header">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+              </generatedParameters>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="f9fdd714-8c65-4a66-a583-5acb643948b2" name="AssertValues" testItemId="49" title="Assert: No leads matching ID '6' were found. EqualTo No leads matching ID '6' were found.">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="variable">
+                    <path element="MuleResponse"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">No leads matching ID '</value>
+                      <variable>
+                        <path element="NewLeadID"/>
+                      </variable>
+                      <value valueClass="string">' were found.</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" guid="15f54808-95df-43f7-ac50-b424c666e098" name="ApexDeleteObject" testItemId="58" title="Delete Object: {LeadRows.Id}">
+              <arguments>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">Playground2</value>
+                </argument>
+                <argument id="objectId">
+                  <value class="variable">
+                    <path element="LeadRows"/>
+                    <path element="Id"/>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" guid="34ba72a2-ffb1-42f3-95ea-d6c47077139d" name="ApexDeleteObject" testItemId="51" title="Delete Object: {LeadRowsUpdated.Id}">
+              <arguments>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">Playground2</value>
+                </argument>
+                <argument id="objectId">
+                  <value class="variable">
+                    <path element="LeadRowsUpdated"/>
+                    <path element="Id"/>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" guid="8a941952-6732-4995-99c5-c64ee11e2d61" name="Finally" testItemId="69" title="Finally: Cleanup Lead Data">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Cleanup Lead Data</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="70">
+          <steps>
+            <caseCall guid="063c85b5-0fcb-4f9e-82d6-b43e1fe952ec" testCaseId="66a337bf-4a1b-432e-81c5-9dc9282b07c9" testCasePath="tests/Cleanup Test Leads.testcase" testItemId="68"/>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+</testCase>
